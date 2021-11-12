@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院概况</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/hospitalSurvey.css">
+</head>
+<body>
+    <div class="wrapper" id="app" v-cloak>
+        <div class="header_view"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="common_nav">
+                    <ul class="common_tabs fixedWidth">
+                        <!-- <router-link to="/foo"></router-link> -->
+                        <li class="common_tab" :to="item.path"  :class="{'active':tabIdx==index}" @click="handleComonTabs(item,index)" v-for="(item,index) in commonTabs">{{item.name}}</li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <!-- <router-link to="/foo">Go to Foo</router-link>
+                    <router-link to="/bar">Go to Bar</router-link> -->
+                </div>
+                <router-view></router-view>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script>
+    var Foo = { template: '<div class="fixedWidth">foo</div>' }
+    var Bar = { template: '<div class="fixedWidth">bar</div>' }
+    var routes = [
+        { path: '/yyjj', component: Foo },
+        { path: '/jgzj', component: Bar }
+    ]
+    var router = new VueRouter({
+        // mode:'history',
+        routes:routes // (缩写) 相当于 routes: routes
+    })
+    var app = new Vue({
+        router:router,
+        mixins: [mixin],
+        data:function(){
+            return {
+                commonTabs:[
+                    {
+                        name:'医院简介',
+                        path:'yyjj'
+                    },
+                    {
+                        name:'机构证件',
+                        path:'jgzj'
+                    },
+                    {
+                        name:'医院文化',
+                        path:'yywh'
+                    },
+                    {
+                        name:'医院分布图',
+                        path:'fbt'
+                    },
+                    {
+                        name:'交通指南',
+                        path:'jtzn'
+                    },
+                    {
+                        name:'院领导',
+                        path:'yld'
+                    }
+                ],
+                tabIdx:0,
+                hasRoute: true
+            }
+        },
+        created:function() {
+            if (this.$route.path == '/') {
+                this.push('/yyjj')
+            }
+        },
+        methods: {
+            handleComonTabs:function(item,index){
+                router.push({path: item.path})
+                this.tabIdx = index;
+            }
+        },
+    }).$mount('#app')
+</script>
+</html>
