@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福建市第二医院</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+</head>
+<body>
+     <div class="wrapper" id="app" v-cloak>
+         <div class="header">
+             <div class="header_top">
+                 <div class="header_bd fixedWidth clearfix">
+                     <div class="logo fl">
+                         <img src="/images/logo.png" alt="">
+                     </div>
+                     <div class="search fl">
+                        <div class="search_box clearfix">
+                            <div class="l_inp fl">
+                                <input type="text" placeholder="请您输入关键词">
+                            </div>
+                            <div class="r_btn fr">
+                                查询
+                            </div>
+                        </div>
+                     </div>
+                     <div class="optionsBtn fr">
+                         <p class="btn">
+                             <a class="" href="#">在线院刊</a>
+                         </p>
+                         <p class="btn">
+                             <a class="" href="#">医保政策</a>
+                         </p>
+                         <p class="btn">
+                             <a class="" href="#">客户服务</a>
+                         </p>
+                     </div>
+                 </div>
+             </div>
+            <div class="header_nav" :class="{'active':isFixed}" ref="headerNav">
+                <ul class="nav fixedWidth">
+                    <li class="column" v-for="(item,index) in tabs" @mouseover="function(e){handleMouseOver(e,index)}" @mouseleave="handleMouseLeave">
+                        <a href="#">{{item.name}}</a>
+                        <div class="content" v-if="item.children">
+                            <div class="menu_wrap">
+                                <div class="menu" v-for="row in item.children">
+                                    <a href="#">{{row.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+         </div>
+         <div class="center" :class="{'active':isFixed}">
+             <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/images/banner.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/images/banner1.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">Slide 3</div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+                </div>
+             </div>
+             <div class="bulletinBoard">
+                 <ul class="bulletinBoard_wrap fixedWidth">
+                     <li class="itemBox">
+                         <div class="icon">
+                             <img class="imgs" src="/images/pic-1-a.png" alt="">
+                             <img class="imgs active" src="/images/pic-1-b.png" alt="">
+                         </div>
+                         <p class="name">预约挂号</p>
+                     </li>
+                     <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-2-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-2-b.png" alt="">
+                        </div>
+                        <p class="name">专家门诊</p>
+                    </li>
+                    <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-3-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-3-b.png" alt="">
+                        </div>
+                        <p class="name">就诊须知</p>
+                    </li>
+                    <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-4-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-4-b.png" alt="">
+                        </div>
+                        <p class="name">交通指南</p>
+                    </li>
+                    <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-5-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-5-b.png" alt="">
+                        </div>
+                        <p class="name">科室分布</p>
+                    </li>
+                    <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-6-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-6-b.png" alt="">
+                        </div>
+                        <p class="name">就诊流程</p>
+                    </li>
+                    <li class="itemBox">
+                        <div class="icon">
+                            <img class="imgs" src="/images/pic-7-a.png" alt="">
+                            <img class="imgs active" src="/images/pic-7-b.png" alt="">
+                        </div>
+                        <p class="name">办事流程</p>
+                    </li>
+                 </ul>
+             </div>
+             <div class="news_wrap">
+                <div class="news fixedWidth clearfix">
+                    <div class="left_box fl">
+                        <div class="banner_news">
+                            <div class="swiper-container_news">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="cover_img">
+                                            <img src="/images/banner.jpg" alt="">
+                                        </div>
+                                        <div class="panel_box clearfix">
+                                            <div class="timeBox">
+                                                <h1 class="num">30</h1>
+                                                <p class="text">2021-08</p>
+                                            </div>
+                                            <div class="news_info fr">
+                                                <h3 class="title">凝心聚力 再创辉煌——我院2021年两代会隆重召开</h3>
+                                                <div class="news_desc">
+                                                    凝心聚力 再创辉煌——我院2021年两代会隆重召开，凝心聚力 再创辉煌——我院2021年两代会隆重召开，凝心聚力 
+                                                    再创辉煌——我院2021年两代会隆重召开，凝心聚力 再创辉煌——我院2021年两代会隆重召开，凝心聚力 再创再创辉煌——我院2021年两代会隆重召开，凝心聚力再创辉煌——我院2021年两代会隆重召开，凝心聚力
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">Slide 7</div>
+                                    <div class="swiper-slide">Slide 8</div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination-news"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_box fl">
+                        <div class="newsList">
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="timeBox fl">
+                                    <p class="num">10</p>
+                                    <p class="time">2020-10</p>
+                                </div>
+                                <div class="desc fl">
+                                    福建第二院专家指导福建市开展首例“房颤射频消融术+左心耳封堵术一站式福建第二院专家指导福建市开展首例“房颤射频消融术
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news_more">
+                    查看全部
+                    <i class="iconfont icon-youjiantou"></i>
+                </div>
+             </div>
+             <div class="notice_wrap">
+                 <div class="notice fixedWidth">
+                    <div class="tabbar clearfix">
+                        <div class="tabs fl">
+                            <p class="tab" :class="{'active':noticeIdx==index}"
+                                @mouseover="noticeMouseover(item,index)"
+                                @mouseLeave="noticeMouseLeave(item,index)"
+                             v-for="(item,index) in noticeTab"
+                              :key="index">{{item}}</p>
+                        </div>
+                        <div class="more fr">
+                            查看全部
+                            <i class="iconfont icon-youjiantou"></i>
+                        </div>
+                    </div>
+                    <div class="notice_content">
+                        <div class="block clearfix">
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="box clearfix fl">
+                                <div class="icon fl"></div>
+                                <div class="r_info fl">
+                                    <p class="text">
+                                        我院关于紧急暂停对外提供核酸检测服务的告知
+                                    </p>
+                                    <p class="time">
+                                        09/14
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+             <!--  -->
+             <div class="expert_wrap">
+                 <div class="expert fixedWidth">
+                     <div class="title">
+                        专家介绍
+                     </div>
+                     <div class="expert_content clearfix">
+                        <div class="swiper-btn swiper-prev fl"></div>
+                        <div class="swiper-container-expert swiper-container-horizontal fl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+                                        <p class="name">郑明</p>
+                                        <div class="dept">
+                                            <span>骨科七区</span><span>主任医师</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/doctor.png" alt="">
+                                    <div class="info_fixed">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div> -->
+                        </div>
+                        <div class="swiper-btn swiper-next fl"></div>
+                     </div>
+                     <div class="expert_more more">
+                         查看全部
+                         <i class="iconfont icon-youjiantou"></i>
+                     </div>
+                 </div>
+             </div>
+             <div class="department_wrap">
+                 <div class="department fixedWidth">
+                     <p class="title">科室导航</p>
+                     <div class="depart_content">
+                         <ul class="dept_tabs">
+                            <li class="dept_tab" 
+                            @mouseover="function(e){handleDeptMouseOver(e,index)}"
+                            :class="{'active':deptIdx==index}" v-for="(item,index) in deptTabs" :key="index">
+                                <span>
+                                    {{item}}
+                                </span>
+                            </li>    
+                         </ul>
+                         <div class="dept_bd clearfix">
+                             <div class="item">
+                                 <div class="icon">
+                                    <img src="/images/neike-1.png" alt="">
+                                 </div>
+                                 <p class="name">心血管内科</p>
+                             </div>
+                             <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                            <div class="item">
+                                <div class="icon">
+                                   <img src="/images/neike-1.png" alt="">
+                                </div>
+                                <p class="name">心血管内科</p>
+                            </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="specialColumn">
+                 <div class="special fixedWidth">
+                    <div class="swiper-container-specail">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/images/cover.png" alt="">
+                                <div class="columnName">抗疫专栏 </div>
+                            </div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination-special"></div>
+                    </div>
+                    <div class="special_more more">
+                        查看全部
+                        <i class="iconfont icon-youjiantou"></i>
+                    </div>
+                 </div>
+             </div>
+             <div class="hr"></div>
+         </div>
+     </div>   
+</body>
+<script src="/js/vue@2.js"></script>
+<!-- <script src="/js/app.js"></script> -->
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:function(){
+            return {
+                tabs:[
+                    {
+                        name: '医院概况',
+                        children:[
+                            {
+                                name: '医院简介'
+                            },
+                            {
+                                name: '机构证件'
+                            },
+                            {
+                                name: '医院文化'
+                            },
+                            {
+                                name: '医院分布图'
+                            },
+                            {
+                                name: '交通指南'
+                            },
+                            {
+                                name: '院领导'
+                            }
+                        ]
+                    },
+                    {
+                        name: '医院新闻',
+                        children:[
+                            {
+                                name: '医院简介'
+                            },
+                            {
+                                name: '机构证件'
+                            },
+                            {
+                                name: '医院文化'
+                            },
+                            {
+                                name: '医院分布图'
+                            },
+                            {
+                                name: '交通指南'
+                            },
+                            {
+                                name: '院领导'
+                            }
+                        ]
+                    },
+                    {
+                        name: '院务公开'
+                    },
+                    {
+                        name: '党建之窗'
+                    },
+                    {
+                        name: '就医指南'
+                    },
+                    {
+                        name: '专家推荐',
+                        children:[
+                            {
+                                name: '医院简介'
+                            },
+                            {
+                                name: '机构证件'
+                            },
+                            {
+                                name: '医院文化'
+                            },
+                            {
+                                name: '医院分布图'
+                            },
+                            {
+                                name: '交通指南'
+                            },
+                            {
+                                name: '院领导'
+                            }
+                        ]
+                    },
+                    {
+                        name: '科研教学'
+                    },
+                    {
+                        name: '护理园地'
+                    },
+                    {
+                        name: '医务专栏'
+                    },
+                    {
+                        name: '健康科普'
+                    },
+                    {
+                        name: '科室介绍'
+                    }
+                ],
+                isFixed: false,
+                noticeTab:[
+                    '通知公告',
+                    '医务专栏',
+                    '党建之窗',
+                    '科教信息',
+                    '护理信息',
+                    '人力招聘'
+                ],
+                noticeIdx:0,
+                deptTabs:[
+                    '内科',
+                    '外科',
+                    '医技科室',
+                    '骨科',
+                    '五官科',
+                    '妇儿科',
+                    '其它'
+                ],
+                deptIdx: 0
+            }
+        },
+        created:function() {
+            
+    
+        },
+        mounted:function() {
+            window.addEventListener('scroll',this.handleSroll)
+        },
+        methods: {
+            handleSroll:function(e){
+                let top = document.documentElement.scrollTop || document.body.scrollTop;
+                if(top>=140){
+                    this.isFixed = true;
+                }else {
+                    this.isFixed = false;
+                }
+                
+            },
+            get:function(){
+                // setTimeout(()=>{
+                //     console.log(1)
+                // },1000)
+                // setTimeout(function(){
+                //     console.log(1)
+                // },1000)
+            },
+            handleMouseOver:function(e,index){
+                $('.wrapper .header .header_nav .nav .column').find('.content').removeClass('active');
+                $('.wrapper .header .header_nav .nav .column').eq(index).find('.content').addClass('active');
+            },
+            handleMouseLeave:function(e){
+                $('.wrapper .header .header_nav .nav .column').find('.content').removeClass('active');
+            },
+            noticeMouseover:function(item,index){
+                this.noticeIdx = index;
+            },
+            noticeMouseLeave:function(item,index){
+            },
+            handleDeptMouseOver:function(e,index){
+                this.deptIdx = index;
+            }
+        },
+    })
+</script>
+<script>
+    var swiper1 = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    var swiper2 = new Swiper('.swiper-container_news', {
+        pagination: '.swiper-pagination-news',
+        paginationClickable: true
+    });
+    var swiper3 = new Swiper('.swiper-container-expert', {
+        nextButton: '.swiper-next',
+        prevButton: '.swiper-prev',
+        slidesPerView: 6,
+        paginationClickable: true,
+        spaceBetween: 30,
+        onSlideChangeEnd:function(swiper){
+            console.log(swiper)
+            if(swiper.isEnd){
+                $('.wrapper .center .expert_wrap .expert_content .swiper-next').addClass('active');
+                $('.wrapper .center .expert_wrap .expert_content .swiper-prev').addClass('active');
+            }else{
+                $('.wrapper .center .expert_wrap .expert_content .swiper-next').removeClass('active');
+                $('.wrapper .center .expert_wrap .expert_content .swiper-prev').removeClass('active');
+            }
+        }
+    });
+    var swiperFour = new Swiper('.swiper-container-specail', {
+        pagination: '.swiper-pagination-special',
+        paginationClickable:true,
+        slidesPerView: 4,
+        paginationClickable: true,
+        spaceBetween: 15,
+        onSlideChangeEnd:function(swiper){
+            console.log(swiper)
+            if(swiper.isEnd){
+                $('.wrapper .center .expert_wrap .expert_content .swiper-next').addClass('active');
+                $('.wrapper .center .expert_wrap .expert_content .swiper-prev').addClass('active');
+            }else{
+                $('.wrapper .center .expert_wrap .expert_content .swiper-next').removeClass('active');
+                $('.wrapper .center .expert_wrap .expert_content .swiper-prev').removeClass('active');
+            }
+        }
+    });
+</script>
+</html>
