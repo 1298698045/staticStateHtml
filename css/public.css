@@ -61,10 +61,10 @@ a {
 	color: #333333;
 	text-decoration: none;
 }
-a:hover {
+/* a:hover {
 	cursor: pointer;
 	color: #c0a868;
-}
+} */
 .a_disable_hover:hover{
 	color: #333333;
 	cursor: not-allowed;

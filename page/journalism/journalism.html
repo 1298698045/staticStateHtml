@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院新闻</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <style>
+        .news_content .box{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="app" v-cloak>
+        <div class="header_view"></div>
+        <div class="rightNav"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="news_content">
+                <div class="box">
+                    <div class="l_time">
+
+                    </div>
+                    <div class="r_cont"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
+<script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script>
+    const app = new Vue({
+        mixins:[mixin],
+        data:function(){
+            return {
+
+            }
+        }
+    }).$mount('#app')
+</script>
+<script>
+$('.nav .column').eq(1).addClass('active');
+</script>
+</html>

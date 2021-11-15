@@ -117,3 +117,43 @@ var footerStr = '<div class="footer">'+
 '             </div>'+
 '         </div>';
 $('.footer_view').append(footerStr);
+var rightStr = '<div class="rightBar">'+
+'            <ul class="bar_cont">'+
+'                <li class="item">'+
+'                    <p class="icon">'+
+'                        <img class="default" src="/images/pic-1-c.png" alt="">'+
+'                        <img src="/images/pic-1-b.png" alt="" class="active">'+
+'                    </p>'+
+'                    <p class="text">预约挂号</p>'+
+'                </li>'+
+'                <li class="item">'+
+'                    <p class="icon">'+
+'                        <img class="default" src="/images/pic-2-c.png" alt="">'+
+'                        <img src="/images/pic-2-b.png" alt="" class="active">'+
+'                    </p>'+
+'                    <p class="text">专家门诊</p>'+
+'                </li>'+
+'                <li class="item">'+
+'                    <p class="icon">'+
+'                        <img class="default" src="/images/pic-3-c.png" alt="">'+
+'                        <img src="/images/pic-3-b.png" alt="" class="active">'+
+'                    </p>'+
+'                    <p class="text">就医须知</p>'+
+'                </li>'+
+'                <li class="item">'+
+'                    <p class="icon">'+
+'                        <img class="default" src="/images/pic-4-c.png" alt="">'+
+'                        <img src="/images/pic-4-b.png" alt="" class="active">'+
+'                    </p>'+
+'                    <p class="text">交通指南</p>'+
+'                </li>'+
+'                <li class="item">'+
+'                    <p class="icon">'+
+'                        <img class="default" src="/images/pic-5-c.png" alt="">'+
+'                        <img src="/images/pic-5-b.png" alt="" class="active">'+
+'                    </p>'+
+'                    <p class="text">科室分布</p>'+
+'                </li>'+
+'            </ul>'+
+'         </div>';
+$('.rightNav').append(rightStr);

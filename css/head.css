@@ -122,6 +122,9 @@
     color: #fff;
     font-weight: bold;
 }
+.wrapper .header .header_nav .nav .column.active a{
+    color: #c0a868;
+}
 .wrapper .header .header_nav .nav .column:hover a{
     color: #c0a868;
     cursor: pointer;
@@ -162,7 +165,7 @@
 .rightBar{
     width: 90px;
     position: fixed;
-    top: 350px;
+    top: 280px;
     right: 0;
     z-index: 999;
 }
