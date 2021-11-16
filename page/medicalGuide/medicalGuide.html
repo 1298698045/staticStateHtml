@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就医指南</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <style>
+        .depart_map .tab_wrap{
+            width: 100%;
+            height: 60px;
+            border-bottom: 2px solid #7f0e12;
+            margin-top: 34px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .depart_map .tab_wrap .tabs{
+            width: 300px;
+            margin: auto;
+        }
+        .depart_map .tabs .tab{
+            display: inline-block;
+            line-height: 60px;
+            width: 100px;
+            height: 60px;
+            background: #cccccc;
+            font-size: 16px;
+            color: #333333;
+            text-align: center;
+            cursor: pointer;
+            float: left;
+            border-right: 1px solid #fff;
+            box-sizing: border-box;
+        }
+        .depart_map .tabs .tab.active{
+            background: #7f0e12;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id='app' v-cloak>
+        <div class="header_view"></div>
+        <div class="rightNav"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="common_nav">
+                    <ul class="common_tabs fixedWidth">
+                        <li class="common_tab" :to="item.path"  :class="{'active':tabIdx==index}" @click="handleComonTabs(item,index)" v-for="(item,index) in commonTabs">{{item.name}}</li>
+                    </ul>
+                </div>
+                <div class="fixedWidth">
+                    <div class="common_content" style="display: block;">
+                    </div>
+                    <div class="common_content">
+                        <div class="richText_wrap">
+                            <div class="title">
+                                福州市第二医院简介
+                            </div>
+                            <div class="rich">
+                                福州市第二医院始建于1866年，是福州市属
+                                医疗机构中历史最为悠久的百年老院，前身为英
+                                国皇家海军、英国领事馆合办的“海港医馆”，1887年易名为
+                                “塔亭医院”，1956年3月定名为“福州市第二医院”，1984年
+                                经福建省人民政府批准，增挂“福建省福州中西医结合医院”，
+                                为全国第一批中西医结合三级甲等医院，2012年4月正式成为厦门大学附属医院。
+                                2016年、2017年连续进入“中国省会市属医院•竞争力
+                                排行榜100强医院”“中国中医医院•竞争力排行榜100强医院”。骨伤科、
+                                康复科、急诊科(含重症医学科)获评“2018中国中医医院.最佳临床型专科”。
+                            </div>
+                            <div class="shareView">
+                                分享到：
+                                <img src="/images/share_01.png" alt="">
+                                <img src="/images/share_02.png" alt="">
+                                <img src="/images/share_03.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="common_content">
+                        <ul class="column_list">
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        关于成立巡察问题“回头看”督导工作领导小组的通知
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        关于成立巡察问题“回头看”督导工作领导小组的通知
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        关于成立巡察问题“回头看”督导工作领导小组的通知
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="common_content">
+                        <div class="richText_wrap">
+                            <div class="title">
+                                福州市第二医院就医流程
+                            </div>
+                            <div class="rich">
+                                福州市第二医院始建于1866年，是福州市属
+                                医疗机构中历史最为悠久的百年老院，前身为英
+                                国皇家海军、英国领事馆合办的“海港医馆”，1887年易名为
+                                “塔亭医院”，1956年3月定名为“福州市第二医院”，1984年
+                                经福建省人民政府批准，增挂“福建省福州中西医结合医院”，
+                                为全国第一批中西医结合三级甲等医院，2012年4月正式成为厦门大学附属医院。
+                                2016年、2017年连续进入“中国省会市属医院•竞争力
+                                排行榜100强医院”“中国中医医院•竞争力排行榜100强医院”。骨伤科、
+                                康复科、急诊科(含重症医学科)获评“2018中国中医医院.最佳临床型专科”。
+                            </div>
+                            <div class="shareView">
+                                分享到：
+                                <img src="/images/share_01.png" alt="">
+                                <img src="/images/share_02.png" alt="">
+                                <img src="/images/share_03.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="common_content">
+                        <div class="depart_map">
+                            <ul class="tab_wrap">
+                                <div class="tabs clearfix">
+                                    <li class="tab active">1号楼</li>
+                                    <li class="tab">2号楼</li>
+                                    <li class="tab">3号楼</li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="common_content">
+                        <ul class="column_list">
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        医疗机构执业许可证
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        医疗机构执业许可证
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="column_item">
+                                <a href="#" class="clearfix">
+                                    <p class="name fl">
+                                        医疗机构执业许可证
+                                    </p>
+                                    <p class="time fr">
+                                        2019-06-26
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script>
+    var app = new Vue({
+        mixins:[mixin],
+        data:function(){
+            return {
+                commonTabs:[
+                    {
+                        name:'专家门诊',
+                        path: 'zjmz'
+                    },
+                    {
+                        name: '就医须知',
+                        path: 'jyxz'
+                    },
+                    {
+                        name: '办事流程',
+                        path: 'bslc'
+                    },
+                    {
+                        name: '就医流程',
+                        path: 'jylc'
+                    },
+                    {
+                        name: '科室分布图',
+                        path: 'ksfbt'
+                    },
+                    {
+                        name: '医疗服务',
+                        path: 'ylfw'
+                    }
+                ],
+                tabIdx: 0
+            }
+        },
+        methods: {
+            handleComonTabs:function(item,index){
+                this.tabIdx = index;
+                $('.common_content').hide();
+                $('.common_content').eq(index).show();
+                if(index==4){
+                    $('.depart_map .tabs .tab').click(function(){
+                        $('.depart_map .tabs .tab').removeClass('active');
+                        $(this).addClass('active');
+                    })
+                }
+            }
+        },
+    }).$mount('#app')
+    $('.nav .column').eq(2).addClass('active');
+</script>
+</html>

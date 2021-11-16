@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>院务公开</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+</head>
+<body>
+    <div class="wrapper" id='app' v-cloak>
+        <div class="header_view"></div>
+        <div class="rightNav"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="container">
+                <div class="common_nav">
+                    <ul class="common_tabs fixedWidth">
+                        <li class="common_tab" :to="item.path"  :class="{'active':tabIdx==index}" @click="handleComonTabs(item,index)" v-for="(item,index) in commonTabs">{{item.name}}</li>
+                    </ul>
+                </div>
+                <div class="common_content fixedWidth" style="display: block;">
+                    <ul class="column_list">
+                        <li class="column_item">
+                            <a href="#" class="clearfix">
+                                <p class="name fl">
+                                    医疗机构执业许可证
+                                </p>
+                                <p class="time fr">
+                                    2019-06-26
+                                </p>
+                            </a>
+                        </li>
+                        <li class="column_item">
+                            <a href="#" class="clearfix">
+                                <p class="name fl">
+                                    医疗机构执业许可证
+                                </p>
+                                <p class="time fr">
+                                    2019-06-26
+                                </p>
+                            </a>
+                        </li>
+                        <li class="column_item">
+                            <a href="#" class="clearfix">
+                                <p class="name fl">
+                                    医疗机构执业许可证
+                                </p>
+                                <p class="time fr">
+                                    2019-06-26
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script>
+    var app = new Vue({
+        mixins:[mixin],
+        data:function(){
+            return {
+                commonTabs:[
+                    {
+                        name:'招标公告',
+                        path: 'zbgg'
+                    },
+                    {
+                        name: '人才招聘',
+                        path: 'rczp'
+                    },
+                    {
+                        name: '通知公告',
+                        path: 'tzgg'
+                    },
+                    {
+                        name: '行风建设',
+                        path: 'xfjs'
+                    },
+                    {
+                        name: '服务告知',
+                        path: 'fwgz'
+                    },
+                    {
+                        name: '纪检专栏',
+                        path: 'jjzl'
+                    }
+                ],
+                tabIdx: 0
+            }
+        },
+        methods: {
+            handleComonTabs:function(item,index){
+                this.tabIdx = index;
+                // $('.common_content').hide();
+                // $('.common_content').eq(index).show();
+            }
+        },
+    }).$mount('#app')
+    $('.nav .column').eq(2).addClass('active');
+</script>
+</html>

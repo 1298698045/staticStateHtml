@@ -82,6 +82,12 @@
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
 }
+.wrapper .center .common_content .column_list .column_item:hover .time{
+    color: #7f0e12;
+}
+.wrapper .center .common_content .column_list .column_item:hover .name{
+    color: #7f0e12;
+}
 .wrapper .center .common_content .column_list .column_item .time{
     color: #b2b2b2;
 }
@@ -101,4 +107,60 @@
 .crumbs_wrap .crumbs .default{
     cursor: not-allowed;
     color: #999999;
+}
+
+/* 分页 */
+.pagePC .el-pagination{
+    text-align: center;
+    margin-top: 56px;
+    font-weight: normal !important;
+}
+.el-pager .number,.el-pager li.more{
+    width: 44px !important;
+    height: 46px !important;
+    line-height: 46px !important;
+    border-radius: 4px !important;
+    font-size: 20px !important;
+    color: #999999 !important;
+    background: #f2f2f2;
+}
+.pagePC .el-pagination.is-background .el-pager li:not(.disabled).active{
+    background: #7f0e12;
+    color: #fff !important;
+}
+.pagePC .el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color: #999999 ;
+}
+.el-pagination .btn-prev,.el-pagination .btn-next{
+    width: 78px!important;
+    height: 46px !important;
+}
+.el-pagination__editor.el-input{
+    width: 72px!important;
+    height: 46px!important;
+    line-height: 46px!important;
+    margin-right: 10px;
+    
+}
+.el-pagination__editor.el-input .el-input__inner{
+    width: 72px!important;
+    height: 46px!important;
+    line-height: 46px!important;
+    border: 1px solid #e4e4e4 !important;
+}
+/* 查看更多 */
+.more{
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+    color: #7f0e12;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.more:hover{
+    background: #7f0e12;
+    color: #fff;
+    cursor: pointer;
 }
