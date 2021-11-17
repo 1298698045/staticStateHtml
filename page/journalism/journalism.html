@@ -26,6 +26,12 @@
             background: #f5f5f5;
             cursor: pointer;
         }
+        .news_content .box:hover .l_time .num{
+            color: #7f0e12;
+        }
+        .news_content .box:hover .r_cont .title{
+            color: #7f0e12;
+        }
         .news_content .box .l_time{
             width: 103px;
             height: 100px;
@@ -154,6 +160,7 @@
         mixins:[mixin],
         data:function(){
             return {
+                typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>',
                 page:{
                     //当前页数
                     pageNo: 1,

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>院务公开</title>
+    <title>医务专栏</title>
     <link rel="stylesheet" href="/css/public.css">
     <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
@@ -23,17 +23,12 @@
                 <img src="/images/yygk_banner.jpg" alt="">
             </div>
             <div class="container">
-                <div class="common_nav">
-                    <ul class="common_tabs fixedWidth">
-                        <li class="common_tab" :to="item.path"  :class="{'active':tabIdx==index}" @click="handleComonTabs(item,index)" v-for="(item,index) in commonTabs">{{item.name}}</li>
-                    </ul>
-                </div>
                 <div class="common_content fixedWidth" style="display: block;">
                     <ul class="column_list">
                         <li class="column_item">
                             <a href="#" class="clearfix">
                                 <p class="name fl">
-                                    医疗机构执业许可证
+                                    关于成立巡察问题“回头看”督导工作领导小组的通知
                                 </p>
                                 <p class="time fr">
                                     2019-06-26
@@ -43,7 +38,7 @@
                         <li class="column_item">
                             <a href="#" class="clearfix">
                                 <p class="name fl">
-                                    医疗机构执业许可证
+                                    关于成立巡察问题“回头看”督导工作领导小组的通知
                                 </p>
                                 <p class="time fr">
                                     2019-06-26
@@ -53,7 +48,7 @@
                         <li class="column_item">
                             <a href="#" class="clearfix">
                                 <p class="name fl">
-                                    医疗机构执业许可证
+                                    关于成立巡察问题“回头看”督导工作领导小组的通知
                                 </p>
                                 <p class="time fr">
                                     2019-06-26
@@ -92,33 +87,6 @@
         mixins:[mixin],
         data:function(){
             return {
-                commonTabs:[
-                    {
-                        name:'招标公告',
-                        path: 'zbgg'
-                    },
-                    {
-                        name: '人才招聘',
-                        path: 'rczp'
-                    },
-                    {
-                        name: '通知公告',
-                        path: 'tzgg'
-                    },
-                    {
-                        name: '行风建设',
-                        path: 'xfjs'
-                    },
-                    {
-                        name: '服务告知',
-                        path: 'fwgz'
-                    },
-                    {
-                        name: '纪检专栏',
-                        path: 'jjzl'
-                    }
-                ],
-                tabIdx: 0,
                 page:{
                     //当前页数
                     pageNo: 1,
