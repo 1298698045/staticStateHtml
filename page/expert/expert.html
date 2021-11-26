@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医院新闻</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <link rel="stylesheet" href="/static/element-ui/2.15.1/theme-chalk/index.min.css">
+    <style>
+        .expert_content{
+            padding-bottom: 100px;
+        }
+        .expert_content .dept_block{
+            margin: 40px 0;
+            background: #f8f8f8;
+            padding: 25px 30px;
+            box-sizing: border-box;
+        }
+        .expert_content .dept_block .label{
+            height: 50px;
+            line-height: 50px;
+            font-size: 16px;
+            color: #999999;
+        }
+        .expert_content .dept_block .right_block {
+            margin-left: 10px;
+            width: 1112px;
+        }
+        .expert_content .dept_block .right_block .tabs{
+            border-bottom: 1px solid #e4e4e4;
+        }
+        .expert_content .dept_block .right_block .tabs .tab{
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            margin-right: 40px;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333333;
+        }
+        .expert_content .dept_block .right_block .tabs .tab.active{
+            border-bottom: 3px solid #7f0e12;
+        }
+        .expert_content .dept_block .right_block .dept_content{
+            margin: 22px 0;
+            font-size: 16px;
+            color: #333333;
+        }
+        .expert_content .dept_block .right_block .dept_content .name{
+            display: inline-block;
+            min-width: 90px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            margin-right: 60px;
+        }
+        .expert_content .dept_block .right_block .dept_content .name:nth-child(7n){
+            margin-right: 0;
+        }
+        .expert_content .dept_block .right_block .dept_content .name:hover{
+            color: #c0a868;
+            cursor: pointer;
+        }
+        .expert_content .dept_block .right_block .dept_content .name.active{
+            background: #d7d7d7;
+            color: #fff;
+        }
+        .select_row .left .label{
+            color: #999999;
+            font-size: 14px;
+        }
+        .select_row .left .tag{
+            display: inline-block;
+            width: 106px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            border-radius: 3px;
+            background: #7f0e12;
+            color: #fff;
+            font-size: 16px;
+        }
+        .select_row .right{
+            font-size: 14px;
+            color: #999999;
+        }
+        .select_row .right .num{
+            font-size: 16px;
+            font-weight: bold;
+            color: #7f0e12;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="app" v-cloak>
+        <div class="header_view"></div>
+        <div class="rightNav"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="expert_content fixedWidth">
+                <div class="dept_block clearfix">
+                    <div class="label fl">
+                        所在科室：
+                    </div>
+                    <div class="right_block fl">
+                        <ul class="tabs clearfix">
+                            <li class="tab fl" :class="{'active':idx==index}" v-for="(item,index) in tabs">{{item}}</li>
+                        </ul>
+                        <ul class="dept_content">
+                            <li class="name active">
+                                心血管内科
+                            </li>
+                            <li class="name">
+                                呼吸与危重症医学科
+                            </li>
+                            <li class="name">
+                                神经内科
+                            </li>
+                            <li class="name">
+                                消化内科
+                            </li>
+                            <li class="name">
+                                肾内科
+                            </li>
+                            <li class="name">
+                                内分泌科
+                            </li>
+                            <li class="name">
+                                肝胆内科
+                            </li>
+                            <li class="name">
+                                风湿血液科
+                            </li>
+                            <li class="name">
+                                急诊科
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="select_row clearfix">
+                    <div class="left fl">
+                        <span class="label">您已经选择：</span>
+                        <span class="tag">神经内科
+                            <i>x</i>
+                        </span>
+                    </div>
+                    <div class="right fr">
+                        共
+                        <span class="num">30</span>
+                        个专家
+                    </div>
+                </div>
+                <div class="content clearfix">
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                            <div class="hover">
+                                <div class="hover_box">
+                                    <p class="x_l border"></p>
+                                    <p class="x_r border"></p>
+                                    <p class="y_l border"></p>
+                                    <p class="y_r border"></p>
+                                    <div class="dept">
+                                        神经内科
+                                    </div>
+                                    <div class="desc">
+                                        中西医结合治疗各类骨折、脱位，颈肩腰腿痛，骨关节病中西医结合治疗各类骨折、脱位，颈肩腰腿痛，骨关节病
+                                    </div>
+                                    <div class="btn">
+                                        点击查看出诊排班表
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doctor_cart fl">
+                        <div class="avatar">
+                            <img src="" alt="">
+                        </div>
+                        <div class="doctor_info">
+                            <p class="name">游昌华</p>
+                            <p class="position">
+                                教授、主任医师
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagePC">
+                    <el-pagination
+                        background
+                        @current-change="changePage"
+                        :page-size="page.pageSize"
+                        prev-text="上一页"
+                        next-text="下一页"
+                        :current-page.sync="page.pageNo"
+                        layout="prev, pager, next, jumper"
+                        :total="page.contentCount">
+                    </el-pagination>
+                </div>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
+<script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script src="/static/element-ui/2.15.1/index.min.js"></script>
+<script>
+    const app = new Vue({
+        mixins:[mixin],
+        data:function(){
+            return {
+                typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>',
+                page:{
+                    //当前页数
+                    pageNo: 1,
+                    //每页文章条数
+                    pageSize: 10,
+                    //页数总数
+                    pageTotal: 0,
+                    //内容总数
+                    contentCount: 1000
+                },
+                tabs:[
+                    '骨科','内科','外壳','医技科室','五官科','妇儿科','其它'
+                ],
+                idx:0
+            }
+        },
+        methods: {
+            changePage:function(e){
+
+            }
+        },
+    }).$mount('#app')
+</script>
+<script>
+$('.nav .column').eq(5).addClass('active');
+</script>
+</html>
