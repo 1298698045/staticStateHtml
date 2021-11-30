@@ -44,6 +44,106 @@
             background: #7f0e12;
             color: #fff;
         }
+        .search_row{
+            width: 70%;
+            margin: 34px auto;
+        }
+        .search_row .label{
+            font-size: 18px;
+            color: #333333;
+            margin-right: 30px;
+            line-height: 40px;
+        }
+        .search_row .inp{
+            width: 280px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ced4da;
+            box-shadow: rgba(206, 212, 218, 1) solid 1px;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.5;
+            padding-left: 10px;
+            box-sizing: border-box;
+            margin-right: 20px;
+        }
+        .search_row .btn{
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            border-radius: 20px;
+            background: #7f0e12;
+            cursor: pointer;
+        }
+        .visit .title{
+            font-size: 36px;
+            font-weight: bold;
+            color: #333333;
+            text-align: center;
+            border-bottom: 1px solid #c6c6c6;
+            padding: 30px 0;
+        }
+        .visit .tips {
+            color: #999999;
+            font-size: 14px;
+            line-height: 52px;
+            padding: 0 65px;
+            box-sizing: border-box;
+        }
+        .visit .tips .label{
+            color: #7f0e12;
+        }
+        .visit .table{
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+        .visit .table tr th{
+            min-width: 60px;
+            height: 60px;
+            text-align: center;
+            background: #cfb48b;
+            border: 1px solid #fff;
+            color: #fff;
+            font-size: 16px;
+        }
+        .visit .table tr th .english{
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .visit .table tr:nth-child(1) th{
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .visit .table tr:nth-child(1) th:nth-child(1){
+            min-width: 150px;
+        }
+        .visit .table .table_bd .tr .label{
+            background: #f1f1f1;
+            height: 60px;
+            padding: 0 30px;
+            box-sizing: border-box;
+            color: #7f0e12;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .visit .table .table_bd .tr .label .icon{
+            width: 30px;
+            height: 30px;
+            background: #ffffff;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .visit .table .table_bd .tr .label .icon span{
+            display: inline-block;
+            width: 20px;
+            height: 4px;
+            background: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -61,7 +161,120 @@
                     </ul>
                 </div>
                 <div class="fixedWidth">
-                    <div class="common_content" style="display: block;">
+                    <div class="common_content visit" style="display: block;">
+                        <form action="">
+                            <div class="search_row clearfix">
+                                <p class="label fl">出诊信息查询</p>
+                                <input class="inp fl" type="text" placeholder="科室名称">
+                                <input class="inp fl" type="text" placeholder="医生名称">
+                                <button class="btn fl">搜索</button>
+                            </div>
+                        </form>
+                        <div class="title">
+                            出诊时间表
+                        </div>
+                        <div class="tips">
+                            <span class="label">温馨提示：</span>
+                            这里为您提供的福州市第二医院门诊专家固定出诊安排表，由于门诊专家的其他安排造成的停诊情况，请咨询医院门诊导医台（85860666-2988），以免造成您就诊的不便。
+                        </div>
+                        <div class="bd">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">科室</th>
+                                        <th rowspan="2"></th>
+                                        <th colspan="2" rowspan="1">
+                                            周一
+                                            <span class="english">Mon</span>
+                                        </th>
+                                        <th colspan="2" rowspan="1">
+                                            周二
+                                            <span class="english">Tue</span>
+                                        </th>
+                                        <th colspan="2" rowspan="1">
+                                            周三
+                                            <span class="english">Wed</span>
+                                        </th>
+                                        <th colspan="2" rowspan="1">
+                                            周四
+                                            <span class="english">Thur</span>
+                                        </th>
+                                        <th colspan="2" rowspan="1">
+                                            周五
+                                            <span class="english">Fri</span>
+                                        </th>
+                                        <th colspan="1" rowspan="1">
+                                            周六
+                                            <span class="english">Sat</span>
+                                        </th>
+                                        <th colspan="1" rowspan="1">
+                                            周日
+                                            <span class="english">Sun</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                        <th>
+                                            上午
+                                            <p class="english">AM</p>
+                                        </th>
+                                        <th>
+                                            下午
+                                            <p class="english">PM</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table_bd">
+                                    <tr class="tr">
+                                        <td class="label clearfix" colspan="14">
+                                            <p class="name fl">骨科</p>
+                                            <p class="icon fr">
+                                                <span></span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="common_content">
                         <div class="richText_wrap">
