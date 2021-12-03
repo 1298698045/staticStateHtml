@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>院领导详情</title>
+    <link rel="stylesheet" href="/css/public.css">
+    <link rel="stylesheet" href="/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="/css/fontIcon/iconfont.css">
+    <link rel="stylesheet" href="/css/head.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/hospitalSurvey.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <style>
+        .content .doctor_panel{
+            margin: 40px 0;
+            position: relative;
+            padding-top: 1px;
+        }
+        .doctor_clip {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 360px;
+            height: 405px;
+        }
+        .doctor_img{
+            position: absolute;
+            left: 41px;
+            top: 45px;
+            width: 228px;
+        }
+        .right_content{
+            width: 952px;
+            min-height: 780px;
+            background: #fff;
+            margin-left: 330px;
+            margin-top: 26px;
+            box-shadow:  5px 5px 24px 0 rgba(51, 51, 51, 0.1);
+            padding: 44px 40px;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+        .right_content .row_name{
+            padding-bottom: 43px;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .right_content .row_name .name{
+            font-size: 45px;
+            font-weight: bold;
+            color: #7f0e12;
+        }
+        .right_content .row_name .depart{
+            font-size: 28px;
+            color: #333333;
+            padding-left: 40px;
+        }
+        .right_content .box .desc{
+            margin: 25px 0;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="app" v-cloak>
+        <div class="header_view"></div>
+        <div class="rightNav"></div>
+        <div class="center">
+            <div class="banner">
+                <img src="/images/yygk_banner.jpg" alt="">
+            </div>
+            <div class="crumbs_wrap">
+                <div class="crumbs fixedWidth">
+                    <span class="label">您的位置：</span>
+                    <a class="black home" href="#">首页</a> >
+                    <a href="#" class="black">医院概况</a> >
+                    <a href="#" class="black">机构证件</a> >
+                    <span class="default">详细</span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="content fixedWidth">
+                    <div class="doctor_panel">
+                        <div class="doctor_box">
+                            <img class="doctor_img" src="/images/doctor.png" alt="">
+                            <img class="doctor_clip" src="/images/doctor_clip.png" alt="">
+                        </div>
+                        <div class="right_content">
+                            <div class="row_name">
+                                <span class="name">游昌华</span>
+                                <span class="depart">
+                                    骨伤科门诊
+                                </span>
+                            </div>
+                            <div class="box">
+                                <p class="desc">
+                                    毕业于福建中医药大学骨伤科，擅长：中西医结合治疗各类骨折、脱位，
+                                    颈肩腰腿痛，骨关节病，软组织损伤。毕业于福建中医药大学骨伤科，
+                                    擅长：中西医结合治疗各类骨折、脱位，颈肩腰腿痛，骨关节病，软组织损伤。
+                                    毕业于福建中医药大学骨伤科，擅长：中西医结合治疗各类骨折、脱位，颈肩腰腿痛，骨关节病，软组织损伤。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_view"></div>
+    </div>
+</body>
+<script src="/js/vue@2.js"></script>
+<script src="/js/vue-router.js"></script>
+<script src="/js/polyfill.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/swiper-3.4.2.min.js"></script>
+<script src="/js/head.js"></script>
+<script src="/js/app.js"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
+<script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<script>
+    var app = new Vue({
+        mixins: [mixin],
+        data:function(){
+            return {
+                hasRoute: true
+            }
+        },
+        created:function() {
+        },
+        methods: {
+        },
+    }).$mount('#app')
+</script>
+<script>
+$('.nav .column').eq(5).addClass('active');
+</script>
+</html>

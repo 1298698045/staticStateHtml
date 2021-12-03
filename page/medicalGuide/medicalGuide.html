@@ -122,7 +122,7 @@
         .visit .table tr:nth-child(1) th:nth-child(1){
             min-width: 150px;
         }
-        .visit .table .table_bd .tr .label{
+        .visit .content .label{
             background: #f1f1f1;
             height: 60px;
             padding: 0 30px;
@@ -130,19 +130,69 @@
             color: #7f0e12;
             font-weight: bold;
             cursor: pointer;
+            border: 1px solid #e9e9e9;
+            box-sizing: border-box;
         }
-        .visit .table .table_bd .tr .label .icon{
+        .visit .content .label .name{
+            line-height: 60px;
+        }
+        .visit .content .label .icon{
             width: 30px;
             height: 30px;
             background: #ffffff;
             border-radius: 50%;
             text-align: center;
+            margin-top: 15px;
         }
-        .visit .table .table_bd .tr .label .icon span{
+        .visit .content .label .icon .row{
             display: inline-block;
             width: 20px;
             height: 4px;
             background: #f1f1f1;
+            position: relative;
+        }
+        .visit .content .label .icon .row .column{
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: #f1f1f1;
+            position: absolute;
+            left: 8px;
+            top: -8px;
+            display: none;
+        }
+        .visit .content .label .icon .row .column.active{
+            display: block;
+        }
+        .child_table{
+            width: 100%;
+        }
+        .child_table tr td:nth-child(1){
+            min-width: 150px;
+        }
+        .child_table tr td{
+            min-width: 60px;
+        }
+        .search_bd table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .search_bd table tr th{
+            min-width: 60px;
+            height: 60px;
+            text-align: center;
+            background: #cfb48b;
+            border: 1px solid #fff;
+            color: #fff;
+            font-size: 16px;
+        }
+        .search_bd table tr td{
+            min-width: 60px;
+            height: 60px;
+            text-align: center;
+            border: 1px solid #e9e9e9;
+            color: #333;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -165,9 +215,9 @@
                         <form action="">
                             <div class="search_row clearfix">
                                 <p class="label fl">出诊信息查询</p>
-                                <input class="inp fl" type="text" placeholder="科室名称">
-                                <input class="inp fl" type="text" placeholder="医生名称">
-                                <button class="btn fl">搜索</button>
+                                <input v-model.trim="departName" class="inp fl" type="text" placeholder="科室名称">
+                                <input v-model.trim="doctorName" class="inp fl" type="text" placeholder="医生名称">
+                                <button class="btn fl" @click="getSearch">搜索</button>
                             </div>
                         </form>
                         <div class="title">
@@ -177,7 +227,7 @@
                             <span class="label">温馨提示：</span>
                             这里为您提供的福州市第二医院门诊专家固定出诊安排表，由于门诊专家的其他安排造成的停诊情况，请咨询医院门诊导医台（85860666-2988），以免造成您就诊的不便。
                         </div>
-                        <div class="bd">
+                        <div class="bd" v-if="!isSearch">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -263,14 +313,77 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="table_bd">
+                                <!-- <tbody class="table_bd">
                                     <tr class="tr">
                                         <td class="label clearfix" colspan="14">
                                             <p class="name fl">骨科</p>
                                             <p class="icon fr">
-                                                <span></span>
+                                                <span class="row">
+                                                    <span class="column">
+
+                                                    </span>
+                                                </span>
                                             </p>
                                         </td>
+                                    </tr>
+                                    <tr class="panel">
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>3</td>
+                                    </tr>
+                                </tbody> -->
+                            </table>
+                            <div class="content">
+                                <div class="label clearfix" colspan="14">
+                                    <p class="name fl">骨科</p>
+                                    <p class="icon fr">
+                                        <span class="row">
+                                            <span class="column">
+    
+                                            </span>
+                                        </span>
+                                    </p>
+                                </div>
+                                <table class="child_table">
+                                    <tbody>
+                                        <tr>
+                                            <td rowspan="2">1</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                            <td rowspan="1">2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="search_bd" v-if="isSearch">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>科室</th>
+                                        <th width="100">姓名</th>
+                                        <th width="200">职称</th>
+                                        <th>主治</th>
+                                        <th>出诊时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>骨伤科门诊</td>
+                                        <td>游昌华</td>
+                                        <td>骨伤科门诊</td>
+                                        <td>骨伤科门诊</td>
+                                        <td>骨伤科门诊</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -482,7 +595,10 @@
                     pageTotal: 0,
                     //内容总数
                     contentCount: 1000
-                }
+                },
+                isSearch: false,
+                departName: '',
+                doctorName: ''
             }
         },
         methods: {
@@ -499,9 +615,23 @@
                         $(this).addClass('active');
                     })
                 }
+            },
+            getSearch(){
+                if(this.departName!=''||this.doctorName!=''){
+                    this.isSearch = true;
+                }else {
+                    this.isSearch = false;
+                }
             }
+        },
+        mounted:function() {
+            
         },
     }).$mount('#app')
     $('.nav .column').eq(2).addClass('active');
+    $('.content .label').click(function(){
+        $(this).find('.column').toggle();
+        $(this).next('.child_table').toggle();
+    })
 </script>
 </html>
